@@ -1,0 +1,33 @@
+# Studio Research repo — ignore local-only artifacts
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+*.bak
+
+# Env + secrets (none currently, belt-and-braces)
+.env
+.env.*
+*.key
+*.pem
+credentials.json
+secrets.json
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Node (in case)
+node_modules/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+desktop.ini
+
+# Generated images during telemetry runs (if added later)
+.studio-cache/
