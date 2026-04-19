@@ -29,16 +29,27 @@ On fire, the scheduled agent:
 - Matrix pointer in studio-orchestrator always points to latest
 - Archive keeps 6 months of matrices for rollback reference
 
-## Setup command (deferred — requires user approval)
-```
-schedule create \
-  --name studio-matrix-refresh \
-  --cron "0 9 1 * *" \
-  --timezone Africa/Lagos \
-  --prompt "Refresh Studio generator matrix per phase5-monthly-refresh-spec.md"
-```
+## Repo (source of truth)
 
-User runs this when ready to activate. Spec is code — schedule is live deploy.
+**github.com/louisoddie999/STUDIO-RESEARCH** — PRIVATE. Main branch is canonical. Remote agent clones, updates, pushes. Local Claude Code sessions `git pull` before reading matrix.
+
+## Remote-agent workflow (what the cron runs)
+
+1. Clone `https://github.com/louisoddie999/STUDIO-RESEARCH.git`
+2. Read `docs/matrix-v2/generator-matrix-apr2026.md`
+3. For each of 8 tracked generators, WebSearch:
+   - `[generator name] pricing site:$(official)`
+   - `[generator name] new version [CURRENT MONTH YEAR]`
+   - `[generator name] deprecated` / `sunset` / `EOL`
+4. Build diff at `docs/matrix-v2/diff-[YYYY-MM].md`
+5. If any change → write `docs/matrix-v2/generator-matrix-[YYYY-MM].md` as the new current file, keep the prior as archive
+6. `git add . && git commit -m "chore(matrix): refresh YYYY-MM — N changes, N deprecations"`
+7. `git push origin main`
+8. Output summary for scheduled-agent log: "Matrix refreshed YYYY-MM — N changes, N deprecations. See commit SHA."
+
+## Activation
+
+Fired via `schedule` skill → `RemoteTrigger` create. Cron: `0 8 1 * *` UTC (= 09:00 Africa/Lagos on 1st of each month). Model: claude-sonnet-4-6. Environment: env_01MEHusdaU2pRNaERFhYAJ3w. Repo cloned via session_context.sources.
 
 ## Dependencies
 - `schedule` skill (installed)
