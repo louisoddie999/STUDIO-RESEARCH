@@ -91,6 +91,36 @@ Creates "THE STUDIO — Image Gen Cavalry" notebook + adds 6 sources + waits for
 
 +0.5 from: learning loop closed, race wired, slop gate added, matrix refreshed with Apr 2026 intel, 4 domain stress-tests in the corpus, food routing corrected (would have shipped #9-ranked generator for food without battle-test).
 
+## Final-state checkpoint (2026-04-19 end of day)
+
+**Repo:** https://github.com/louisoddie999/STUDIO-RESEARCH — PUBLIC (flipped from private to unblock Anthropic cloud access; reversible).
+
+**Cron:** `trig_01FaJGivDwMiBthdX14YA6ed` — ACTIVE. Next run 2026-05-01 at 08:05 UTC (09:05 WAT). Test-fired successfully today. Dashboard: https://claude.ai/code/scheduled/trig_01FaJGivDwMiBthdX14YA6ed.
+
+**Skills inventory (11 total):**
+1. studio-orchestrator (v2 — race + slop wired, Apr 2026 routing, dark-skin portrait row, food flipped to Seedream 4.5)
+2. studio-prompt-bible (v1.1 — tag index + promotion + T21-T24 CGI templates)
+3. studio-retro (v2 — promotion gate)
+4. studio-race (NEW — multi-gen A/B runner)
+5. studio-slop-check (NEW — 3-tier gate + 22 domain tells + Python helpers)
+6. studio-cgi-mode (NEW — inverse reality-engine for renders)
+7. reality-engine
+8. packaging-preservation
+9. color-palette-lock
+10. shot-list-builder
+11. prompt-syntax-master
+
+**Open follow-ups:**
+- D: NotebookLM push. User runs `notebooklm login && bash docs/upgrade/notebooklm-push-manifest.sh` when ready.
+- Helper scripts (slop_auto/slop_visual/hand_count) are written but unexercised — await first real Studio run with people in frame or text in output to validate.
+- Telemetry CSV for studio-race is empty — populates after first real race.
+- Promoted-templates block in prompt-bible is seeded with T21-T24 (Used-count=0 each) — bumps on first real use.
+
+**Lessons recorded:**
+- Remote schedule agents cannot read private repos without Anthropic GitHub App install. For research/matrix workflows with cited public content, PUBLIC is the pragmatic default.
+- Battle-tests are high-ROI: without the food stress-test, Studio would have routed to Flux 2 Max (rank 9) instead of Seedream 4.5 (rank 1) — shipped quality would have been materially worse.
+- Cavalry rule works: 4 parallel Haiku agents + 1 matrix-refresh Haiku agent cost ~$0.12 total and surfaced 22 new slop tells + a routing flip + a whole new skill proposal (studio-cgi-mode).
+
 ## Cost
 - Matrix refresh agent: ~$0.02 (Haiku + WebSearch)
 - 4× battle-test agents: ~$0.10 total (Haiku + WebSearch, running)
